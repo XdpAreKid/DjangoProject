@@ -34,6 +34,7 @@ def vote(request,question_id):
     except (KeyError, Choice.DoesNotExist):
         return render(request,'polls/detail.html',{'question':question,
                                                    'error_messsage':"You didn't select a choice."})
+
     else:
         selected_choice.vote+=1
         selected_choice.save()
